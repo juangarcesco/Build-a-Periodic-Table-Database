@@ -5,17 +5,21 @@
 `\d properties`
 
 1) You should rename the weight column to atomic_mass
+
 `ALTER TABLE properties RENAME COLUMN weight TO atomic_mass;`
 
 2) You should rename the melting_point column to melting_point_celsius and the boiling_point column to boiling_point_celsius
+
 `ALTER TABLE properties RENAME COLUMN melting_point TO melting_point_celsius;`
 `ALTER TABLE properties RENAME COLUMN  boiling_point TO boiling_point_celsius;`
 
 3) Your melting_point_celsius and boiling_point_celsius columns should not accept null values
+
 `ALTER TABLE properties ALTER COLUMN melting_point_celsius SET NOT NULL;`
 `ALTER TABLE properties ALTER COLUMN boiling_point_celsius SET NOT NULL;`
 
 4) You should add the UNIQUE constraint to the symbol and name columns from the elements table
+
 `ALTER TABLE elements ADD CONSTRAINT unique_symbol UNIQUE (symbol);`
 `ALTER TABLE elements ADD CONSTRAINT unique_name UNIQUE (name);`
 
@@ -24,7 +28,8 @@
 `ALTER TABLE elements ALTER COLUMN name SET NOT NULL;`
 
 6) You should set the atomic_number column from the properties table as a foreign key that references the column of the same name in the elements table
-ALTER TABLE properties ADD CONSTRAINT fk_properties_elements FOREIGN KEY (atomic_number) REFERENCES elements(atomic_number);
+
+`ALTER TABLE properties ADD CONSTRAINT fk_properties_elements FOREIGN KEY (atomic_number) REFERENCES elements(atomic_number);`
 
 7) You should create a types table that will store the three types of elements
 CREATE TABLE types();
