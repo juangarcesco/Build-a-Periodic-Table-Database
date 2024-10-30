@@ -67,41 +67,41 @@
 **13) You should capitalize the first letter of all the symbol values in the elements table. Be careful to only capitalize the letter and not change any others**
 
 `SELECT * FROM elements;`
-UPDATE elements SET symbol = INITCAP(symbol);
-UPDATE elements SET symbol = 'He' WHERE symbol = 'he';
-UPDATE elements SET symbol = 'Li' WHERE symbol = 'li';
-UPDATE elements SET symbol = 'MT' WHERE symbol = 'mT';
+`UPDATE elements SET symbol = INITCAP(symbol);`
+`UPDATE elements SET symbol = 'He' WHERE symbol = 'he';`
+`UPDATE elements SET symbol = 'Li' WHERE symbol = 'li';`
+`UPDATE elements SET symbol = 'MT' WHERE symbol = 'mT';`
 
 **14) You should remove all the trailing zeros after the decimals from each row of the atomic_mass column. You may need to adjust a data type to DECIMAL for this. The final values they should be are in the atomic_mass.txt file**
 
-SELECT * FROM properties;
-ALTER TABLE properties ALTER COLUMN atomic_mass SET DATA TYPE DECIMAL;
-UPDATE properties SET atomic_mass = 1.008 WHERE atomic_number = 1;
-UPDATE properties SET atomic_mass = 4.0026 WHERE atomic_number = 2;
-UPDATE properties SET atomic_mass = 6.94 WHERE atomic_number = 3;
-UPDATE properties SET atomic_mass = 9.0122 WHERE atomic_number = 4;
-UPDATE properties SET atomic_mass = 10.81 WHERE atomic_number = 5;
-UPDATE properties SET atomic_mass = 12.011 WHERE atomic_number = 6;
-UPDATE properties SET atomic_mass = 14.007 WHERE atomic_number = 7;
-UPDATE properties SET atomic_mass = 15.999 WHERE atomic_number = 8;
-UPDATE properties SET atomic_mass = 18.998 WHERE atomic_number = 9;
-UPDATE properties SET atomic_mass = 20.18 WHERE atomic_number = 1000;
+`SELECT * FROM properties;`
+`ALTER TABLE properties ALTER COLUMN atomic_mass SET DATA TYPE DECIMAL;`
+`UPDATE properties SET atomic_mass = 1.008 WHERE atomic_number = 1;`
+`UPDATE properties SET atomic_mass = 4.0026 WHERE atomic_number = 2;`
+`UPDATE properties SET atomic_mass = 6.94 WHERE atomic_number = 3;`
+`UPDATE properties SET atomic_mass = 9.0122 WHERE atomic_number = 4;`
+`UPDATE properties SET atomic_mass = 10.81 WHERE atomic_number = 5;`
+`UPDATE properties SET atomic_mass = 12.011 WHERE atomic_number = 6;`
+`UPDATE properties SET atomic_mass = 14.007 WHERE atomic_number = 7;`
+`UPDATE properties SET atomic_mass = 15.999 WHERE atomic_number = 8;`
+`UPDATE properties SET atomic_mass = 18.998 WHERE atomic_number = 9;`
+`UPDATE properties SET atomic_mass = 20.18 WHERE atomic_number = 1000;`
 
 **15) You should add the element with atomic number 9 to your database. Its name is Fluorine, symbol is F, mass is 18.998, melting point is -220, boiling point is -188.1, and it's a nonmetal**
 
 **16) You should add the element with atomic number 10 to your database. Its name is Neon, symbol is Ne, mass is 20.18, melting point is -248.6, boiling point is -246.1, and it's a nonmetal**
 
-INSERT INTO elements(atomic_number, name, symbol) VALUES (9, 'Fluorine', 'F'), (10, 'Neon', 'Ne');
-INSERT INTO elements(atomic_number, name, symbol) VALUES (9, 'Fluorine', 'F'), (10, 'Neon', 'Ne');
-INSERT INTO properties(atomic_number, atomic_mass, melting_point_celsius, boiling_point_celsius, type_id) VALUES (9, 18.998, -220, -188.1, (SELECT type_id FROM types WHERE type = 'nonmetal')), (10, 20.18, -248.6, -246.1, (SELECT type_id FROM types WHERE type = 'nonmetal'));
+`INSERT INTO elements(atomic_number, name, symbol) VALUES (9, 'Fluorine', 'F'), (10, 'Neon', 'Ne');`
+`INSERT INTO elements(atomic_number, name, symbol) VALUES (9, 'Fluorine', 'F'), (10, 'Neon', 'Ne');`
+`INSERT INTO properties(atomic_number, atomic_mass, melting_point_celsius, boiling_point_celsius, type_id) VALUES (9, `18.998, -220, -188.1, (SELECT type_id FROM types WHERE type = 'nonmetal')), (10, 20.18, -248.6, -246.1, (SELECT type_id FROM types WHERE type = 'nonmetal'));`
 
 **17) You should create a periodic_table folder in the project folder and turn it into a git repository with git init**
 
-mkdir periodic_table
-cd periodic_table
-git init
-git add .
-git commit -m "Initial commit"
+`mkdir periodic_table`
+`cd periodic_table`
+`git init`
+`git add . `
+`git commit -m "Initial commit"`
 
 **18) Your repository should have a main branch with all your commits**
 
@@ -110,8 +110,8 @@ git commit -m "Initial commit"
 **20) You should create an element.sh file in your repo folder for the program I want you to make**
 
 **21) Your script (.sh) file should have executable permissions**
-touch element.sh
-chmod +x element.sh
+`touch element.sh`
+`chmod +x element.sh`
 
 **22) If you run ./element.sh, it should output only Please provide an element as an argument. and finish running.**
 
@@ -121,18 +121,17 @@ chmod +x element.sh
 
 **25) If the argument input to your element.sh script doesn't exist as an atomic_number, symbol, or name in the database, the only output should be I could not find that element in the database.**
 
-
 **26) The message for the first commit in your repo should be Initial commit**
 
-git add element.sh
-git commit -m "feat: add script to query and display element details"
+`git add element.sh`
+`git commit -m "feat: add script to query and display element details"`
 
 **27) The rest of the commit messages should start with fix:, feat:, refactor:, chore:, or test:**
 
 **28) You should delete the non existent element, whose atomic_number is 1000, from the two tables**
 
-DELETE FROM properties WHERE atomic_number = 1000;
-DELETE FROM elements WHERE atomic_number = 1000;
+`DELETE FROM properties WHERE atomic_number = 1000;`
+`DELETE FROM elements WHERE atomic_number = 1000;`
 
 **29) Your properties table should not have a type column**
 
